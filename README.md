@@ -7,7 +7,7 @@
 
 A plug-and-play server observability and traffic monitoring dashboard for Laravel. Get live CPU, RAM, disk metrics, service health checks, a real-time request feed with bot detection, and IP blocking — all in one embeddable dashboard with no external services and no build step required.
 
-![Dashboard Preview](https://raw.githubusercontent.com/rakibdevs/laravel-server-lens/main/art/preview.png)
+![Dashboard Preview](https://github.com/rakibuddin101/laravel-server-lens/blob/main/art/preview.png)
 
 ## Installation
 
