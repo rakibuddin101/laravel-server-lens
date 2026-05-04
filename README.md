@@ -29,70 +29,12 @@ Run the migrations:
 php artisan migrate
 ```
 
-Register the middleware to enable traffic monitoring.
-
-**Laravel 11+ — `bootstrap/app.php`**
-
-```php
-->withMiddleware(function (Middleware $middleware) {
-    $middleware->append(\Rakib\ServerLens\Http\Middleware\TrafficMonitorMiddleware::class);
-})
-```
-
-**Laravel 10 — `app/Http/Kernel.php`**
-
-```php
-protected $middleware = [
-    // ...
-    \Rakib\ServerLens\Http\Middleware\TrafficMonitorMiddleware::class,
-];
-```
+Register the middleware to enable traffic monitoring. Add `\Rakib\ServerLens\Http\Middleware\TrafficMonitorMiddleware::class` to your global middleware stack in `bootstrap/app.php` (Laravel 11+) or `app/Http/Kernel.php` (Laravel 10).
 
 You can publish the config file with:
 
 ```bash
 php artisan vendor:publish --tag="server-lens-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-
-    'enabled' => env('SERVER_LENS_ENABLED', true),
-
-    'route_prefix' => 'ops',
-    'middleware'   => ['web', 'auth'],
-
-    'poll_seconds'  => 5,
-    'cache_seconds' => 3,
-
-    'prune_after_days' => 30,
-
-    'log_mode' => env('SERVER_LENS_LOG_MODE', 'all'), // 'all' or 'security'
-
-    'thresholds' => [
-        'cpu'         => ['warning' => 70,  'critical' => 90],
-        'memory'      => ['warning' => 75,  'critical' => 90],
-        'disk'        => ['warning' => 80,  'critical' => 95],
-        'response_ms' => ['warning' => 500, 'critical' => 1500],
-    ],
-
-    'skip_extensions' => ['css', 'js', 'png', 'jpg', 'svg', 'woff2'],
-
-    'skip_paths' => [],
-
-    'geo' => [
-        'driver'    => env('SERVER_LENS_GEO_DRIVER', 'none'), // 'none' or 'maxmind'
-        'mmdb_path' => env('SERVER_LENS_MMDB_PATH', ''),
-    ],
-
-    'api' => [
-        'enabled' => env('SERVER_LENS_API_ENABLED', false),
-        'token'   => env('SERVER_LENS_API_TOKEN', ''),
-    ],
-
-];
 ```
 
 You can publish the views to customise the dashboard:
