@@ -1,8 +1,8 @@
 # Laravel Server Lens
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/rakib/laravel-server-lens.svg?style=flat-square)](https://packagist.org/packages/rakib/laravel-server-lens)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/rakibuddin101/laravel-server-lens.svg?style=flat-square)](https://packagist.org/packages/rakibuddin101/laravel-server-lens)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/rakibdevs/laravel-server-lens/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/rakibdevs/laravel-server-lens/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/rakib/laravel-server-lens.svg?style=flat-square)](https://packagist.org/packages/rakib/laravel-server-lens)
+[![Total Downloads](https://img.shields.io/packagist/dt/rakibuddin101/laravel-server-lens.svg?style=flat-square)](https://packagist.org/packages/rakibuddin101/laravel-server-lens)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE.md)
 
 A plug-and-play server observability and traffic monitoring dashboard for Laravel. Get live CPU, RAM, disk metrics, service health checks, a real-time request feed with bot detection, and IP blocking — all in one embeddable dashboard with no external services and no build step required.
@@ -14,7 +14,7 @@ A plug-and-play server observability and traffic monitoring dashboard for Larave
 You can install the package via Composer:
 
 ```bash
-composer require rakib/laravel-server-lens
+composer require rakibuddin101/laravel-server-lens
 ```
 
 Run the installer to publish config, migrations, and assets:
