@@ -7,11 +7,13 @@ use Rakib\ServerLens\Console\Commands\CheckCommand;
 use Rakib\ServerLens\Console\Commands\InstallCommand;
 use Rakib\ServerLens\Console\Commands\PruneCommand;
 use Rakib\ServerLens\Console\Commands\UnblockCommand;
+use Rakib\ServerLens\Http\Middleware\TrafficMonitorMiddleware;
 use Rakib\ServerLens\Services\GeoLocationService;
 use Rakib\ServerLens\Services\HostMetricReader;
 use Rakib\ServerLens\Services\ServerObservabilityService;
 use Rakib\ServerLens\Services\TrafficClassifierService;
 use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
 
 class ServerLensServiceProvider extends ServiceProvider
@@ -36,6 +38,8 @@ class ServerLensServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+
+        $this->app->make(Kernel::class)->pushMiddleware(TrafficMonitorMiddleware::class);
 
         if ($this->app->runningInConsole()) {
             $this->publishAssets();

@@ -29,8 +29,6 @@ Run the migrations:
 php artisan migrate
 ```
 
-Register the middleware to enable traffic monitoring. Add `\Rakib\ServerLens\Http\Middleware\TrafficMonitorMiddleware::class` to your global middleware stack in `bootstrap/app.php` (Laravel 11+) or `app/Http/Kernel.php` (Laravel 10).
-
 You can publish the config file with:
 
 ```bash
