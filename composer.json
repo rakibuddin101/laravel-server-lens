@@ -1,5 +1,5 @@
 {
-    "name": "rakib/laravel-server-lens",
+    "name": "rakibuddin101/laravel-server-lens",
     "description": "Real-time server observability & traffic monitoring dashboard for Laravel.",
     "keywords": ["laravel", "server", "monitor", "dashboard", "observability", "traffic"],
     "type": "library",
