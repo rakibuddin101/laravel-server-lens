@@ -49,6 +49,32 @@ Visit the dashboard at `/ops` (or whatever `route_prefix` you configured):
 http://your-app.test/ops
 ```
 
+### Accessing the dashboard
+
+The `/ops` route is protected by the `web` and `auth` middleware out of the box. If you visit it without being logged in, Laravel will redirect you to the login page — this is intentional to keep server metrics private.
+
+**You must be authenticated** (logged in to your app) before you can view the dashboard.
+
+To restrict access further — for example, to admins only — update the `middleware` key in `config/server-lens.php`:
+
+```php
+// config/server-lens.php
+'middleware' => ['web', 'auth', 'can:admin'],   // Laravel Gate
+'middleware' => ['web', 'auth', 'role:admin'],   // Spatie Permissions / your own middleware
+```
+
+To allow any authenticated user (the default):
+
+```php
+'middleware' => ['web', 'auth'],
+```
+
+To open the dashboard without any login requirement (**not recommended in production**):
+
+```php
+'middleware' => ['web'],
+```
+
 ### Programmatic access
 
 ```php
